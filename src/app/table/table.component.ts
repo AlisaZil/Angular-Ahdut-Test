@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, HostListener, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ApiDataService } from '../api-data.service';
 import { nationPopulationObj } from '../nationPopulation';
 
@@ -12,8 +12,9 @@ export class TableComponent implements OnInit, OnChanges{
 
   constructor(private data:ApiDataService){}
 
-  nationPopulationData: nationPopulationObj[] = [];
   @Input() isAscending:boolean = true;
+  nationPopulationData: nationPopulationObj[] = [];
+  isPhone:boolean = false;
 
   ngOnInit(){
     this.data.getData().subscribe((res:any)=>{
@@ -22,8 +23,14 @@ export class TableComponent implements OnInit, OnChanges{
       this.sortTableByYear(this.isAscending);
     })
   }
-  ngOnChanges(changes: SimpleChanges): void {
-    this.sortTableByYear(this.isAscending);
+
+  ngOnChanges(): void {
+    this.sortTableByYear(this.isAscending)
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize() {
+    this.isPhone = window.innerWidth <= 500? false: true;
   }
 
   sortTableByYear(order:boolean){
@@ -48,9 +55,6 @@ export class TableComponent implements OnInit, OnChanges{
   }
 
   getMaxPopulationValue(){
-
     return Math.max(...this.nationPopulationData.map(obj => obj['Population']));
-
   }
-  
 }

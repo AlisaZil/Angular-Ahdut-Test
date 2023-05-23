@@ -1,13 +1,16 @@
 <table class="population-table">
 
     <th>Year</th>
-    <th>Population</th>
+    <th
+    *ngIf="isPhone">Population</th>
     <th>Nation</th>
     <th>P_growth</th>
 
     <tr *ngFor="let nation of nationPopulationData">
         <td>{{nation.Year}}</td>
-        <td [ngStyle]="{'background-color': getMaxPopulationValue() === nation.Population ? 'red':'white'}"
+
+        <td *ngIf="isPhone"
+        [ngStyle]="{'background-color': getMaxPopulationValue() === nation.Population ? '#ff647c':'none'}"
         >{{nation.Population}}</td>
         <td>{{nation.Nation}}</td>
         <td>{{nation.P_growth.toFixed(2)}}</td>

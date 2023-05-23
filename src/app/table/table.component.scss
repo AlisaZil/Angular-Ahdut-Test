@@ -1,21 +1,22 @@
-$main-color:#4797ce;
+$main-color:#5b81f7;
 $second-color: #090f0f;
 
 .population-table{
 
     border-collapse: collapse;
     width: 70vw;
-    height: fit-content;
+    height: 70vh;
+    background-color: white;
 
     th{
         background-color: $main-color;
         color: white;
-        font-weight: 200;
+        font-weight: 400;
+        height: 0px;
+
     }
     th, td{
-        border: 1px solid #ddd;
-        border-left: none;
-        border-right: none;
+        border: 1px solid #91a0cc;
         padding: 8px;
         user-select: none;
         text-align:center;
@@ -26,10 +27,7 @@ $second-color: #090f0f;
 
     }
 
-    border-left: 1px solid #ddd;
-    border-right: 1px solid #ddd;
-
     tr:hover{
-        background-color: #ddd;
+        background-color: #ccd5f0;
     }
 }
