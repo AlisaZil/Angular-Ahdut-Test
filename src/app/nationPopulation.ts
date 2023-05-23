@@ -4,5 +4,6 @@ export interface nationPopulationObj{
     ID_Year: number,
     Year: string,
     Population: number,
-    Slug_Nation: string
+    Slug_Nation: string,
+    P_growth:number
 }

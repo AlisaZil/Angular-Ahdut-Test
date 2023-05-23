@@ -12,7 +12,7 @@ export class TableComponent implements OnInit{
 
   constructor(private data:ApiDataService){}
 
-  nationPopulationData: any[] = [];
+  nationPopulationData: nationPopulationObj[] = [];
   isAscending:boolean = true;
 
   ngOnInit(){
@@ -30,14 +30,15 @@ export class TableComponent implements OnInit{
   }
   
   addPopulationGrowth(){
-    this.nationPopulationData.forEach((element:any, i:number) =>{
+
+    this.nationPopulationData.forEach((element:nationPopulationObj, i:number) =>{
 
       if(i+1 !== this.nationPopulationData.length){
         let lastYearPopulation = this.nationPopulationData[i+1].Population;
-        element['P_Growth'] = (element.Population - lastYearPopulation)/lastYearPopulation * 100
+        element['P_growth'] = (element.Population - lastYearPopulation)/lastYearPopulation * 100
       }
       else{
-        element['P_Growth'] = 0;
+        element['P_growth'] = 0;
       }
 
     })
