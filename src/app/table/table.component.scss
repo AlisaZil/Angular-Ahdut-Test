@@ -2,8 +2,11 @@ $main-color:#4797ce;
 $second-color: #090f0f;
 
 .population-table{
+
     border-collapse: collapse;
     width: 70vw;
+    height: fit-content;
+    
     th{
         background-color: $main-color;
         color: white;
@@ -23,7 +26,10 @@ $second-color: #090f0f;
 
     }
 
-
     border-left: 1px solid #ddd;
     border-right: 1px solid #ddd;
+
+    tr:hover{
+        background-color: #ddd;
+    }
 }
