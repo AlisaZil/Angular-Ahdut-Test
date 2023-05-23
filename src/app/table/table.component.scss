@@ -1,0 +1,29 @@
+$main-color:#4797ce;
+$second-color: #090f0f;
+
+.population-table{
+    border-collapse: collapse;
+    width: 70vw;
+    th{
+        background-color: $main-color;
+        color: white;
+        font-weight: 200;
+    }
+    th, td{
+        border: 1px solid #ddd;
+        border-left: none;
+        border-right: none;
+        padding: 8px;
+        user-select: none;
+        text-align:center;
+    }
+    td{
+        color: $second-color;
+        font-weight: 200;
+
+    }
+
+
+    border-left: 1px solid #ddd;
+    border-right: 1px solid #ddd;
+}
