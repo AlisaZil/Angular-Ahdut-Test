@@ -46,5 +46,11 @@ export class TableComponent implements OnInit, OnChanges{
 
     })
   }
+
+  getMaxPopulationValue(){
+
+    return Math.max(...this.nationPopulationData.map(obj => obj['Population']));
+
+  }
   
 }

@@ -7,7 +7,8 @@
 
     <tr *ngFor="let nation of nationPopulationData">
         <td>{{nation.Year}}</td>
-        <td>{{nation.Population}}</td>
+        <td [ngStyle]="{'background-color': getMaxPopulationValue() === nation.Population ? 'red':'white'}"
+        >{{nation.Population}}</td>
         <td>{{nation.Nation}}</td>
         <td>{{nation.P_growth.toFixed(2)}}</td>
     </tr>
