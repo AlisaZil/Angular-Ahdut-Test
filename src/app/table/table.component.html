@@ -13,7 +13,16 @@
     </tr>
 
 </table>
-<app-button class="ascending-button" (buttonClick)="sortTableByYear(isAscending  = !isAscending)">
+
+<app-button 
+class="ascending-button" 
+(buttonClick)="sortTableByYear(isAscending  = !isAscending)">
+
     <span>change order</span>
-    <img class="arrow-icon" src="../../assets/arrow-down.svg" alt="arrow">
+
+    <img 
+    class="arrow-icon" 
+    [src]="isAscending? '../../assets/arrow-up.svg' : '../../assets/arrow-down.svg'" 
+    alt="arrow">
+
 </app-button>
