@@ -11,8 +11,9 @@ import { nationPopulationObj } from '../nationPopulation';
 export class TableComponent implements OnInit{
 
   constructor(private data:ApiDataService){}
-  
-  nationPopulationData: nationPopulationObj[] = []
+
+  nationPopulationData: nationPopulationObj[] = [];
+  isAscending:boolean = false;
 
   ngOnInit(){
 
@@ -26,5 +27,12 @@ export class TableComponent implements OnInit{
       
     })
   }
+
+  sortTableByYear(order:boolean){
+   this.nationPopulationData.sort((a, b) =>{
+    return order? Number(a.Year) - Number(b.Year): Number(b.Year) - Number(a.Year);
+   })
+  }
+  
   
 }
