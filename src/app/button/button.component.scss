@@ -3,6 +3,7 @@
 }
 
 .button{
+
     width: fit-content;
     height: fit-content;
     display: flex;
@@ -10,14 +11,15 @@
     justify-content: space-between;
     border-radius: 5px;
     border: none;
-    background-color: #5ca4d6;
+    background-color: #5b81f7;
     color: white;
     padding: 5px 10px;
     cursor: pointer;
 }
+
 .button:hover{
-    background-color: #5292c0;
+    background-color: #4b6fd9;
 }
 .button:active{
-    background-color: #4d89b5;
+    background-color: #4161c3;
 }
