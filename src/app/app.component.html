@@ -1,1 +1,14 @@
-<app-table></app-table>
+<app-table [isAscending]="isAscending"></app-table>
+
+<app-button 
+class="ascending-button" 
+(buttonClick)="isAscending = !isAscending">
+
+    <span>change order by year</span>
+
+    <img 
+    class="arrow-icon" 
+    [src]="isAscending? '../../assets/arrow-up.svg' : '../../assets/arrow-down.svg'" 
+    alt="arrow">
+
+</app-button>
