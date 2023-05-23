@@ -1,28 +1,18 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { ApiDataService } from '../api-data.service';
+import { Component, Input, OnChanges } from '@angular/core';
 import { nationPopulationObj } from '../nationPopulation';
 
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
   styleUrls: ['./table.component.scss'],
-  providers: [ApiDataService]
 })
-export class TableComponent implements OnInit, OnChanges{
+export class TableComponent implements OnChanges{
 
-  constructor(private data:ApiDataService){}
-
-  nationPopulationData: nationPopulationObj[] = [];
+  @Input() nationPopulationData: nationPopulationObj[] = [];
   @Input() isAscending:boolean = true;
 
-  ngOnInit(){
-    this.data.getData().subscribe((res:any)=>{
-      this.nationPopulationData = res.data;
-      this.addPopulationGrowth();
-      this.sortTableByYear(this.isAscending);
-    })
-  }
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(): void {
+    this.addPopulationGrowth();
     this.sortTableByYear(this.isAscending);
   }
 
