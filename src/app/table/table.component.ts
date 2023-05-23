@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiDataService } from '../api-data.service';
 import { nationPopulationObj } from '../nationPopulation';
-import { elementAt } from 'rxjs';
 
 @Component({
   selector: 'app-table',
@@ -14,12 +13,13 @@ export class TableComponent implements OnInit{
   constructor(private data:ApiDataService){}
 
   nationPopulationData: any[] = [];
-  isAscending:boolean = false;
+  isAscending:boolean = true;
 
   ngOnInit(){
     this.data.getData().subscribe((res:any)=>{
       this.nationPopulationData = res.data;
       this.addPopulationGrowth();
+      this.sortTableByYear(this.isAscending);
     })
   }
 
