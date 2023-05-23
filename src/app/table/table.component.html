@@ -3,11 +3,13 @@
     <th>Year</th>
     <th>Population</th>
     <th>Nation</th>
+    <th>P_growth</th>
 
     <tr *ngFor="let nation of nationPopulationData">
         <td>{{nation.Year}}</td>
         <td>{{nation.Population}}</td>
         <td>{{nation.Nation}}</td>
+        <td>{{nation.P_Growth}}</td>
     </tr>
 </table>
 <button (click)="sortTableByYear(isAscending  = !isAscending)"> click to change order</button>

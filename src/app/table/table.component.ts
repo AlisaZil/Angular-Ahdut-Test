@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiDataService } from '../api-data.service';
 import { nationPopulationObj } from '../nationPopulation';
+import { elementAt } from 'rxjs';
 
 @Component({
   selector: 'app-table',
@@ -12,19 +13,13 @@ export class TableComponent implements OnInit{
 
   constructor(private data:ApiDataService){}
 
-  nationPopulationData: nationPopulationObj[] = [];
+  nationPopulationData: any[] = [];
   isAscending:boolean = false;
 
   ngOnInit(){
-
     this.data.getData().subscribe((res:any)=>{
-
-      res.data.forEach((element:nationPopulationObj) => {
-
-          this.nationPopulationData.push(element);
-
-      });
-      
+      this.nationPopulationData = res.data;
+      this.addPopulationGrowth();
     })
   }
 
@@ -34,5 +29,18 @@ export class TableComponent implements OnInit{
    })
   }
   
+  addPopulationGrowth(){
+    this.nationPopulationData.forEach((element:any, i:number) =>{
+
+      if(i+1 !== this.nationPopulationData.length){
+        let lastYearPopulation = this.nationPopulationData[i+1].Population;
+        element['P_Growth'] = (element.Population - lastYearPopulation)/lastYearPopulation * 100
+      }
+      else{
+        element['P_Growth'] = 0;
+      }
+
+    })
+  }
   
 }
