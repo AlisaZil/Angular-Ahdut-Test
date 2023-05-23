@@ -14,5 +14,8 @@
 
 </table>
 
-<button (click)="sortTableByYear(isAscending  = !isAscending)"> click to change order</button>
-<app-button>dddd</app-button>
+<button (click)="sortTableByYear(isAscending  = !isAscending)"> change order</button>
+<app-button class="ascending-button">
+    <span>change order</span>
+    <img class="arrow-icon" src="../../assets/arrow-down.svg" alt="arrow">
+</app-button>

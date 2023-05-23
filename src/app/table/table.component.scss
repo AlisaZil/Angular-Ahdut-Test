@@ -6,7 +6,7 @@ $second-color: #090f0f;
     border-collapse: collapse;
     width: 70vw;
     height: fit-content;
-    
+
     th{
         background-color: $main-color;
         color: white;
@@ -31,5 +31,15 @@ $second-color: #090f0f;
 
     tr:hover{
         background-color: #ddd;
+    }
+}
+.ascending-button{
+    span{
+        font-size: larger;
+        padding-right: 5px;
+    }
+    .arrow-icon{
+        width: 1.5vw;
+        filter: invert(100%) sepia(7%) saturate(26%) hue-rotate(205deg) brightness(106%) contrast(108%);;
     }
 }
