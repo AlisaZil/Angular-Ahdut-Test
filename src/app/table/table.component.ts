@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { ApiDataService } from './api-data.service';
-import { nationPopulationObj } from './nationPopulation';
+import { ApiDataService } from '../api-data.service';
+import { nationPopulationObj } from '../nationPopulation';
 
 @Component({
   selector: 'app-table',
