@@ -30,7 +30,7 @@ export class TableComponent implements OnInit, OnChanges{
 
   @HostListener('window:resize', ['$event'])
   onResize() {
-    this.isPhone = window.innerWidth <= 500? false: true;
+    this.isPhone = window.innerWidth <= 500? true: false;
   }
 
   sortTableByYear(order:boolean){
